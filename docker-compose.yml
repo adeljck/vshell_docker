@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  vshell:
+    image: registry.cn-hangzhou.aliyuncs.com/vshell/vshell:latest
+    container_name: vshell
+    network_mode: host
+    privileged: true
+    cap_add:
+      - SYS_TIME
+      - SYS_ADMIN
+    environment:
+      - WEB_TITLE=VShell
+      - WEB_PORT=39082
+      - WEB_USERNAME=admin
+      - WEB_PASSWORD=AdmiN@123
+      - MASTER_TYPE=web
+      - TARGET_DATE=2024-10-01 00:00:00
+    volumes:
+      - ./db:/app/db
+      - ./download:/app/download
+      - ./screenshot:/app/screenshot
+    restart: unless-stopped

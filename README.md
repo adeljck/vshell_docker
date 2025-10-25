@@ -1,2 +1,4 @@
 # vshell_docker
-vshell docker version
+run vshell in docker
+# usage
+docker-compose up -d
